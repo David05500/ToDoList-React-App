@@ -3,11 +3,11 @@ import React from "react";
 import Form from "./Form/Form";
 
 const fields = [
-	{ name: "task", label:"task", value:"", className:"form-control" }
+	{ name: "task", label:"Task", value:"", className:"form-control" }
 ];
 
 const fieldsPriority = [
-	{ name: "priority", label:"priority", value:"", className:"form-control"}
+	{ name: "priority", label:"Priority", value:"", className:"form-control"}
 ];
 
 const Add = ({ onSubmit }) => (

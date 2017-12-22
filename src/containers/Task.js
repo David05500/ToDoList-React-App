@@ -1,21 +1,15 @@
 import { connect } from "react-redux";
 import Task from "../components/Task";
-import { delTask } from "../data/actions/api";
+import { delTask, fetchTask } from "../data/actions/api";
 
-const mapStateToProps = (sate, { id }) => {
-	const tasks = state.get("tasks");
-	const task = tasks.find(t => t.get("id") === +id);
-	return {
-		task: task,
-	}
-}
 
-const mapDispatchToProps = (dispatch, { id } ) => {
+
+const mapDispatchToProps = (dispatch, { task } ) => {
 	return {
-		onDelete: () => dispatch(delTask(id)),
-		onLoad: () => dispatch(fetchTask(id)),
+		onDelete: () => dispatch(delTask(task.get("id"))),
+		onLoad: () => dispatch(fetchTask(task.get("id"))),
 	}
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Task);
+export default connect(null , mapDispatchToProps)(Task);

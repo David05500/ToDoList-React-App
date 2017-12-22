@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Task from './Task';
+import Task from '../containers/Task';
 
 class Tasks extends Component {
 	componentDidMount() {
@@ -15,7 +15,7 @@ class Tasks extends Component {
 				{tasks.count() ?  
 					<ul className="list-group">
 						{tasks.map(task => (
-							<Task task={ task } onDelete={ onDelete } />
+							<Task key={ task.get("id") } task={ task } onDelete={ onDelete } />
 
 						))}
 					</ul>

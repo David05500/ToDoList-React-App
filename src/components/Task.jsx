@@ -7,14 +7,13 @@ class Task extends Component {
 
 
 	render () {
-		const { onDelete, task } = this.props;
-	
 
-		return ( 
+		const { task, onDelete } = this.props;
 
-			<li className="list-group-item" key={ task.get("id") } >
+		return (
+			<li  style={ listItemStyle }className="list-group-item" key={ task.get("id") } >
 				{ task.get("task") }
-				<button onClick={ onDelete }>
+				<button className="btn btn-danger" style={ deleteStyle } onClick={ onDelete }>
 					x
 				</button>
 			</li>
@@ -22,7 +21,18 @@ class Task extends Component {
 		)
 	}
 
+
 }
 
-
 export default Task;
+
+let listItemStyle = {
+	overflow: "auto",
+	verticalAlign: "middle",
+	color: "#053314",
+}
+
+let deleteStyle = {
+	width: "5%",
+	float: "right",
+}
