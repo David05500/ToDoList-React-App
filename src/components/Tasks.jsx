@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Task from './Task';
 
 class Tasks extends Component {
 	componentDidMount() {
@@ -6,15 +7,16 @@ class Tasks extends Component {
 	}
 
 	render () {
-		const { tasks } = this.props;
+		const { tasks, onDelete, key, content } = this.props;
 		console.log(tasks);
 		return(
+
 			<div>
 				{tasks.count() ?  
 					<ul className="list-group">
 						{tasks.map(task => (
-							<li className="list-group-item" key={ tasks.get("id") }> {task.get("task") }
-							</li>
+							<Task task={ task } onDelete={ onDelete } />
+
 						))}
 					</ul>
 				: 
@@ -27,6 +29,7 @@ class Tasks extends Component {
 	}
 }
 export default Tasks;
+
 
 
 
